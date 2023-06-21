@@ -44,12 +44,10 @@ class Board extends Component {
   }
 
   resetBtn() {
-    if (this.state.hasWon === true) {
-      this.setState({
-        hasWon: false,
-        board: this.createBoard(),
-      });
-    }
+    this.setState({
+      hasWon: false,
+      board: this.createBoard(),
+    });
   }
 
   createBoard() {

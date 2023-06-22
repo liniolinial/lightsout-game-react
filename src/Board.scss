@@ -130,5 +130,11 @@ button {
     text-align: justify;
     font-size: 17px;
     margin-top: 0;
+    a {
+      color: rgb(82, 186, 223);
+      &:hover {
+        color: rgb(172, 227, 248);
+      }
+    }
   }
 }

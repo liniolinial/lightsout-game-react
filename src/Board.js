@@ -41,7 +41,7 @@ class Board extends Component {
       board: this.createBoard(), // muss ich hier kein binding machen?/ func als props
       //target;,
       move: 0,
-      // time:,
+      time: 0,
     };
     this.resetBtn = this.resetBtn.bind(this);
   }
@@ -72,6 +72,11 @@ class Board extends Component {
     this.setState((prevState) => ({
       move: prevState.move + 1,
     }));
+    // this.setState((prevTime)=>{
+    //   setInterval(()=>{
+    //     set
+    //   })
+    // })
     console.log("FLIPPING!", coord);
     let { ncols, nrows } = this.props; // nochmal .this eindeutiger machen.
     let board = this.state.board;
@@ -137,22 +142,23 @@ class Board extends Component {
           <div className='Info-bar'>
             <p>Target:</p>
             <p>Moves: {this.state.move}</p>
-            <p>Time:</p>
+            <p>Time:{this.state.time}</p>
           </div>
           <div className='Intro-game'>
             <h2>How to play</h2>
             <p className='text'>
-              The game consists of a 5 by 5 grid of lights. When the game
-              starts, a random number or a stored pattern of these lights is
-              switched on. Pressing any of the lights will toggle it and the
-              adjacent lights. The goal of the puzzle is to switch all the
-              lights off, preferably with as few button presses as possible.
-              LightsOut is based on a deceptively simple concept. Clicking on a
-              cell toggles that cell and each of its immediate neighbors. The
-              goal is to turn out all the lights, ideally with the minimum
-              number of clicks. There is a fairly easy method for solving the
-              puzzles, but it will very rarely result in the minimum number of
-              moves.
+              The game consists of a 5 by 5 grid of lights. LightsOut is based
+              on a deceptively simple concept. When the game starts, a random
+              number or a stored pattern of these lights is switched on.
+              Clicking on a cell toggles that cell and each of its immediate
+              neighbors. The goal of the puzzle is to switch all the lights off,
+              preferably with as few button presses as possible. There is a
+              fairly{" "}
+              <a href='https://www.logicgamesonline.com/lightsout/tutorial.html'>
+                easy method
+              </a>{" "}
+              for solving the puzzles, but it will very rarely result in the
+              minimum number of moves.
             </p>
             <button onClick={this.resetBtn}>new Game</button>
           </div>

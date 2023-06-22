@@ -126,4 +126,10 @@ button:hover {
   text-align: justify;
   font-size: 17px;
   margin-top: 0;
+}
+.Intro-game .text a {
+  color: rgb(82, 186, 223);
+}
+.Intro-game .text a:hover {
+  color: rgb(172, 227, 248);
 }/*# sourceMappingURL=Board.css.map */

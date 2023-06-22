@@ -39,6 +39,9 @@ class Board extends Component {
     this.state = {
       hasWon: false,
       board: this.createBoard(), // muss ich hier kein binding machen?/ func als props
+      //target;,
+      move: 0,
+      // time:,
     };
     this.resetBtn = this.resetBtn.bind(this);
   }
@@ -47,6 +50,8 @@ class Board extends Component {
     this.setState({
       hasWon: false,
       board: this.createBoard(),
+      move: 0,
+      time: 0,
     });
   }
 
@@ -64,6 +69,9 @@ class Board extends Component {
   }
 
   flipCellsAround(coord) {
+    this.setState((prevState) => ({
+      move: prevState.move + 1,
+    }));
     console.log("FLIPPING!", coord);
     let { ncols, nrows } = this.props; // nochmal .this eindeutiger machen.
     let board = this.state.board;
@@ -126,7 +134,11 @@ class Board extends Component {
           <table className='Board'>
             <tbody>{tblBoard}</tbody>
           </table>
-          <button onClick={this.resetBtn}>new Game</button>
+          <div className='Info-bar'>
+            <p>Target:</p>
+            <p>Moves: {this.state.move}</p>
+            <p>Time:</p>
+          </div>
           <div className='Intro-game'>
             <h2>How to play</h2>
             <p className='text'>
@@ -135,7 +147,14 @@ class Board extends Component {
               switched on. Pressing any of the lights will toggle it and the
               adjacent lights. The goal of the puzzle is to switch all the
               lights off, preferably with as few button presses as possible.
+              LightsOut is based on a deceptively simple concept. Clicking on a
+              cell toggles that cell and each of its immediate neighbors. The
+              goal is to turn out all the lights, ideally with the minimum
+              number of clicks. There is a fairly easy method for solving the
+              puzzles, but it will very rarely result in the minimum number of
+              moves.
             </p>
+            <button onClick={this.resetBtn}>new Game</button>
           </div>
         </div>
       </div>

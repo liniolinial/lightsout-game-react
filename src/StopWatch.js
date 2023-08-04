@@ -27,65 +27,33 @@
 
 // export {StopWatch};
 
-import React, { Component } from "react";
-
+// import React, { Component } from "react";
 // class StopWatch extends Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = {
-//       time: 0,
+//       sec: 0,
+//       min: 0,
 //     };
-//     this.timer = this.timer.bind(this);
+//     // this.componentDidMount = this.componentDidMount.bind(this);
 //   }
 
-//   timer() {
-//     const timerBtn = setInterval(() => {
-//       this.setState((prevZeit) => ({
-//         time: prevZeit.time + 1,
+//   componentDidMount() {
+//     this.sec = setInterval(() => {
+//       this.setState((prevState) => ({
+//         sec: prevState.sec + 1,
 //       }));
 //     }, 1000);
-//     return () => {
-//       clearInterval(timerBtn);
-//     };
 //   }
 
 //   render() {
+//     // const { time } = this.state;
 //     return (
 //       <div>
-//         <div>Laufende Zeit: {this.timer()}</div>
-//         {/* <button onClick={starteStoppuhr}>Neustart</button> */}
+//         <div>Laufende Zeit: {this.state.sec}</div>
 //       </div>
 //     );
 //   }
 // }
 
 // export default StopWatch;
-class StopWatch extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sec: 0,
-      min: 0,
-    };
-    // this.componentDidMount = this.componentDidMount.bind(this);
-  }
-
-  componentDidMount() {
-    this.sec = setInterval(() => {
-      this.setState((prevState) => ({
-        sec: prevState.sec + 1,
-      }));
-    }, 1000);
-  }
-
-  render() {
-    // const { time } = this.state;
-    return (
-      <div>
-        <div>Laufende Zeit: {this.state.sec}</div>
-      </div>
-    );
-  }
-}
-
-export default StopWatch;
